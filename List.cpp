@@ -105,31 +105,26 @@ bool List::remove(int loc){
     Node *walker, *trailer;
     walker = this->head;
     trailer = nullptr;
-
-    if(loc == 0){
-        Node *temp = walker;
-        this->head = walker->getNext();
-        delete temp;
-        temp = nullptr;
-        return true;
-    }
-    
+  
     while(loc > 0 && walker != nullptr){
-        loc = loc-1;
+        loc = loc - 1;
         trailer = walker;
         walker = walker->getNext();
         
     }
 
-    if (loc > 0 || trailer == nullptr){
+    if (loc > 0 || walker == nullptr){
         return false;
     } 
     else {
-        Node *temp = walker;
-        Node *next = walker->getNext() == nullptr ? walker->getNext() : nullptr;
-        trailer->setNext(next);
-        delete temp;
-        temp = nullptr;
+        if(trailer == nullptr){
+            this->head = walker->getNext();
+        }
+        else{
+            trailer->setNext(walker->getNext());
+        }
+        delete walker;
+            walker = nullptr;
     }
     return true;
 }
