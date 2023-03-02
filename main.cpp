@@ -1,8 +1,10 @@
 #include <iostream>
 #include "List.h"
+#include "OList.h"
 
 int main()
 {
+    /*
     List *l = new List();
     std::cout << l->toString() << " " << l->length() << "\n";
     l->insert(0,"a");
@@ -36,6 +38,18 @@ int main()
 
     std::cout << "\n" << "remove(3) " << std::boolalpha << l->remove(3) << "\n";
     std::cout << l->toString() << " " << l->length() << "\n";
+    */
 
-  return 0;
+    OList *l = new OList();
+    std::cout << "\n" << l->toString() << " " << l->length() << "\n";
+
+    l->insert("b");
+    std::cout << "\n" << l->toString() << " " << l->length() << "\n";
+    l->insert("d");
+    std::cout << "\n" << l->toString() << " " << l->length() << "\n";
+    l->insert("a");
+    std::cout << "\n" << l->toString() << " " << l->length() << "\n";
+    l->insert("c");
+    std::cout << "\n" << l->toString() << " " << l->length() << "\n";
+    return 0;
 }
