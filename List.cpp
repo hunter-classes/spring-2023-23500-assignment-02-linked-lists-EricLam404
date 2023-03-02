@@ -13,6 +13,20 @@ void List::insert(std::string data){
   head = tmp;
 }
 
+List::~List(){
+    Node *walker, *trailer;
+    walker = this->head;
+    trailer = nullptr;
+  
+    while(walker != nullptr){
+        trailer = walker;
+        walker = walker->getNext();
+        delete trailer;
+    }
+    trailer = nullptr;
+    walker = nullptr;
+}
+
 /*
   insert at loc
   We need a pointer to the node BEFORE
@@ -124,7 +138,7 @@ bool List::remove(int loc){
             trailer->setNext(walker->getNext());
         }
         delete walker;
-            walker = nullptr;
+        walker = nullptr;
     }
     return true;
 }
