@@ -73,7 +73,7 @@ std::string OList::toString(){
 }
 
 bool OList::contains(std::string item){
-    Node *walker = head;
+    Node *walker = this->head;
     while (walker != nullptr){
         if(walker->getData() == item){
             return true;
@@ -109,4 +109,32 @@ bool OList::remove(int loc){
         walker = nullptr;
     }
     return true;
+}
+
+std::string OList::get(int loc){
+    Node *walker = this->head;
+    while(loc > 0 && walker != nullptr){
+        walker = walker->getNext();
+        loc--;
+    }
+    if(loc > 0){
+        return "";
+    }
+
+    return walker->getData();
+} 
+
+void OList::reverse(){
+    Node *oldHead, *newHead, *temp;
+    oldHead = this->head;
+    newHead = nullptr;
+    temp = nullptr;
+
+    while(oldHead != nullptr){
+        newHead = oldHead;
+        oldHead = oldHead->getNext();
+        newHead->setNext(temp);
+        temp = newHead;
+    }
+    this->head = newHead;
 }

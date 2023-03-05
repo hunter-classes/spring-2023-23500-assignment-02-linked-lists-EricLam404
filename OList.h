@@ -15,4 +15,6 @@ class OList{
         std::string toString();
         bool contains(std::string item);
         bool remove(int loc);
+        std::string get(int loc);
+        void reverse();
 };

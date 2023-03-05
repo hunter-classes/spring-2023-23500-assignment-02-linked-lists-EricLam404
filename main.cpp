@@ -51,5 +51,14 @@ int main()
     std::cout << "\n" << l->toString() << " " << l->length() << "\n";
     l->insert("c");
     std::cout << "\n" << l->toString() << " " << l->length() << "\n";
+
+    std::cout << "\n";
+
+    std::cout << l->get(0) << "\n";
+    std::cout << l->get(5) << "\n";
+    std::cout << l->get(3) << "\n";
+
+    l->reverse();
+    std::cout << "\n" << l->toString() << " " << l->length() << "\n";
     return 0;
 }
