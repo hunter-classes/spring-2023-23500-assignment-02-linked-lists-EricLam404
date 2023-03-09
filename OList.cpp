@@ -18,6 +18,7 @@ OList::~OList(){
     }
     trailer = nullptr;
     walker = nullptr;
+    std::cout << "Deconstructor Called \n";
 }
 
 
@@ -117,8 +118,8 @@ std::string OList::get(int loc){
         walker = walker->getNext();
         loc--;
     }
-    if(loc > 0){
-        return "";
+    if(loc != 0){
+        return "Our get is out of range";
     }
 
     return walker->getData();
